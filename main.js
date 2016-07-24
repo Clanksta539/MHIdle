@@ -1,40 +1,88 @@
-var resources = 0;
+var herbs = 0;
+var meat = 0;
 var felynes = 1; //these cats do what you tell them.
-var gatherers = 0; //these are automatic cats.
+var farmers = 0; //these are automatic cats.
+var hunters = 0;
+var loopCount = 0;
 
-function gatherClick(number){
-	resources = resources + number;
-    document.getElementById("resources").innerHTML = resources;
+function farmClick(number) {
+    herbs = herbs + number;
+    document.getElementById("herbs").innerHTML = herbs;
+};
+
+function meatClick(number) {
+    meat = meat + number;
+    document.getElementById("meat").innerHTML = meat;
 };
 
 function hireCat() {//hiring spare cats
     var hireCost = Math.floor(10 * Math.pow(1.1, felynes));
-    if (resources >= hireCost) {
+    if (herbs >= hireCost) {
         felynes = felynes + 1;
-        resources = resources - hireCost;
+        herbs = herbs - hireCost;
         document.getElementById('felynes').innerHTML = felynes;
-        document.getElementById('resources').innerHTML = resources;
+        document.getElementById('herbs').innerHTML = herbs;
         var nextCost = Math.floor(10 * Math.pow(1.1, felynes));
         document.getElementById('hiringCost').innerHTML = nextCost;
     }
 }
 
-function trainCat(){
-    var trainingCost = Math.floor(10 * Math.pow(1.1,gatherers));     
-    if(resources >= trainingCost & felynes > 0){ 
-        gatherers = gatherers + 1; 
-        resources = resources - trainingCost;
+function trainCatFarm() {
+    var trainingCost = Math.floor(10 * Math.pow(1.1, farmers));
+    var nextCost;
+    if (herbs >= trainingCost & felynes > 0) {
+        farmers = farmers + 1;
+        herbs = herbs - trainingCost;
         felynes = felynes - 1; //removes from spare pool
-        document.getElementById('gatherers').innerHTML = gatherers;
+        document.getElementById('farmers').innerHTML = farmers;
         document.getElementById('felynes').innerHTML = felynes;
-        document.getElementById('resources').innerHTML = resources;  
+
+        nextCost = Math.floor(10 * Math.pow(1.1, felynes));
+        document.getElementById('hiringCost').innerHTML = nextCost;
+
+        document.getElementById('herbs').innerHTML = herbs;
     };
-    var nextCost = Math.floor(10 * Math.pow(1.1,gatherers)); 
-    document.getElementById('trainingCost').innerHTML = nextCost;
+    nextCost = Math.floor(10 * Math.pow(1.1, farmers));
+    document.getElementById('trainingCostFarm').innerHTML = nextCost;
 };
 
-window.setInterval(function(){
+function trainCatHunt() {
+    var trainingCost = Math.floor(10 * Math.pow(1.1, hunters));
+    var nextCost;
+    if (herbs >= trainingCost & felynes > 0) {
+        hunters = hunters + 1;
+        herbs = herbs - trainingCost;
+        felynes = felynes - 1; //removes from spare pool
+        document.getElementById('hunters').innerHTML = hunters;
+        document.getElementById('felynes').innerHTML = felynes;
 
-    gatherClick(gatherers);
+        nextCost = Math.floor(10 * Math.pow(1.1, felynes));
+        document.getElementById('hiringCost').innerHTML = nextCost;
 
-}, 1000);
+        document.getElementById('herbs').innerHTML = herbs;
+    };
+    nextCost = Math.floor(10 * Math.pow(1.1, hunters));
+    document.getElementById('trainingCostHunt').innerHTML = nextCost;
+};
+
+window.setInterval(function () {
+    loopCount++
+    var loopCheck = 0;
+
+    //every 1/2 seconds
+
+
+    //every second
+    loopCheck = loopCount % 2
+    if (loopCheck == 0) {
+        farmClick(farmers);
+    }
+
+    //every 2 seconds
+    loopCheck = loopCount % 4
+    if (loopCheck == 0) {
+        meatClick(hunters);
+    }
+
+    loopCount % 100
+}, 500);
