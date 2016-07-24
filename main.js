@@ -88,16 +88,16 @@ window.setInterval(function () {
     document.getElementById("meat").innerHTML = meat;
 
     //every 1/2 seconds
-    loopCheck = loopCount % 1 * hunger;
+    loopCheck = loopCount % (1 * hunger);
 
     //every second
-    loopCheck = loopCount % 2 * hunger;
+    loopCheck = loopCount % (2 * hunger);
     if (loopCheck == 0) {
         farmClick(farmers);
     }
 
     //every 2 seconds
-    loopCheck = loopCount % 4 * hunger;
+    loopCheck = loopCount % (4 * hunger);
     if (loopCheck == 0) {
         meatClick(hunters);
     }
