@@ -1,5 +1,5 @@
 var resources = 0;
-
+var felynes = 1;
 function gatherClick(number){
 	resources = resources + number;
     document.getElementById("resources").innerHTML = resources;
