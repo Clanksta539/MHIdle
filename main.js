@@ -4,6 +4,7 @@ var felynes = 1; //these cats do what you tell them.
 var farmers = 0; //these are automatic cats.
 var hunters = 0;
 var loopCount = 0;
+var hunger = 1;
 
 function unhide(x) {
     document.getElementById(x).style.display = "hide";
