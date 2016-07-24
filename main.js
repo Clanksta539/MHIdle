@@ -78,13 +78,14 @@ window.setInterval(function () {
 
     //feed check
     while (hunger > 1 && endLoop == false) {
-        if (meat > farmers + hunters) {
+        if (meat >= farmers + hunters) {
             meat = meat - farmers - hunters;
             hunger--;
         } else {
             endLoop = true;
         }
     }
+    document.getElementById("meat").innerHTML = meat;
 
     //every 1/2 seconds
     loopCheck = loopCount % 1 * hunger;
