@@ -4,6 +4,7 @@ var felynes = 1; //these cats do what you tell them.
 var farmers = 0; //these are automatic cats.
 var hunters = 0;
 var loopCount = 0;
+var hunger = 1;
 
 function farmClick(number) {
     herbs = herbs + number;
@@ -68,21 +69,38 @@ function trainCatHunt() {
 window.setInterval(function () {
     loopCount++
     var loopCheck = 0;
+    var endLoop = false;
+
+    //feed check
+    while (hunger > 1 && endLoop == false) {
+        if (meat > farmers + hunters) {
+            meat = meat - farmers - hunters;
+            hunger--;
+        } else {
+            endLoop = true;
+        }
+    }
 
     //every 1/2 seconds
+    loopCheck = loopCount % 1 * hunger;
 
-
-    //every second
-    loopCheck = loopCount % 2
+    //every 1 second prior hunger
+    loopCheck = loopCount % 2 * hunger;
     if (loopCheck == 0) {
         farmClick(farmers);
     }
 
-    //every 2 seconds
-    loopCheck = loopCount % 4
+    //every 2 seconds prior hunger
+    loopCheck = loopCount % 4 * hunger;
     if (loopCheck == 0) {
         meatClick(hunters);
     }
 
-    loopCount % 100
+    //30 seconds
+    loopCheck = loopCount % 60
+    if (loopCheck == 0) {
+        hunger++;
+    }
+
+    loopCount % 120//60 seconds
 }, 500);
