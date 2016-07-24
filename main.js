@@ -5,6 +5,11 @@ var farmers = 0; //these are automatic cats.
 var hunters = 0;
 var loopCount = 0;
 
+function unhide(id) {
+	document.getElementById(id).style.display = "inline";
+};
+
+
 function farmClick(number) {
     herbs = herbs + number;
     document.getElementById("herbs").innerHTML = herbs;
