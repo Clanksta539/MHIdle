@@ -3,23 +3,45 @@
         <link rel="stylesheet" type="text/css" href="interface.css" />
     </head>
     <body>
-        <button onclick="gatherClick(felynes)">Gather</button>
+        Send Felynes to farm
         <br />
-        Resources: <span id="resources">0</span>
+        <button onclick="farmClick(felynes)">Farm</button>
+        <br />
+        Resources: <span id="herbs">0</span>
         <br />
         <br />
-        <button onclick="hireCat()">Hire cat</button>
+        Send Felynes on a hunt
+        <br />
+        <button onclick="meatClick(felynes)">Hunt</button>
+        <br />
+        meat: <span id="meat">0</span>
+        <br />
+        <br />
+        Hire an untrained Felyne
+        <br />
+        <button onclick="hireCat()">Hire</button>
         <br />
         Spare Felynes: <span id="felynes">1</span>
         <br />
-        Hiring Cost: <span id="hiringCost">10</span>
+        Hiring Cost: <span id="hiringCost">11</span>
         <br />
         <br />
-        <button onclick="trainCat()">Train Cat</button>
+        Train a Felyne to farm
         <br />
-        Gatherers: <span id="gatherers">0</span>
+        <button onclick="trainCatFarm()">Train</button>
         <br />
-        Training Cost: <span id="trainingCost">10</span>
+        Farmers: <span id="farmers">0</span>
+        <br />
+        Training Cost: <span id="trainingCostFarm">10</span>
+        <br />
+        <br />
+        Train a Felyne to hunt
+        <br />
+        <button onclick="trainCatHunt()">Train</button>
+        <br />
+        Hunters: <span id="hunters">0</span>
+        <br />
+        Training Cost: <span id="trainingCostHunt">10</span>
         <script type="text/javascript" src="main.js"></script>
     </body>
 </html>
