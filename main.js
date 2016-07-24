@@ -53,7 +53,7 @@ function trainCatHunt() {
         hunters = hunters + 1;
         herbs = herbs - trainingCost;
         felynes = felynes - 1; //removes from spare pool
-        document.getElementById('farmers').innerHTML = hunters;
+        document.getElementById('hunters').innerHTML = hunters;
         document.getElementById('felynes').innerHTML = felynes;
 
         nextCost = Math.floor(10 * Math.pow(1.1, felynes));
@@ -76,13 +76,12 @@ window.setInterval(function () {
     loopCheck = loopCount % 2
     if (loopCheck == 0) {
         farmClick(farmers);
-        huntClick(hunters);
     }
 
     //every 2 seconds
     loopCheck = loopCount % 4
     if (loopCheck == 0) {
-        
+        meatClick(hunters);
     }
 
     loopCount % 100
