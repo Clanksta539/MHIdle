@@ -4,12 +4,15 @@
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
+    <div id="farmingCats" onload="unhide(farmingCats)">
         Send Felynes to farm
         <br />
         <button onclick="farmClick(felynes)">Farm</button>
         <br />
         Resources: <span id="herbs">0</span>
         <br />
+    </div>
+    <div id="huntingCats">
         <br />
         Send Felynes on a hunt
         <br />
@@ -17,6 +20,8 @@
         <br />
         meat: <span id="meat">0</span>
         <br />
+    </div>
+    <div id="hireCats">    
         <br />
         Hire an untrained Felyne
         <br />
@@ -26,6 +31,8 @@
         <br />
         Hiring Cost: <span id="hiringCost">11</span>
         <br />
+    </div>
+    <div id="trainFarmCat">
         <br />
         Train a Felyne to farm
         <br />
@@ -35,6 +42,8 @@
         <br />
         Training Cost: <span id="trainingCostFarm">10</span>
         <br />
+    </div>
+    <div id="trainHuntingCat">
         <br />
         Train a Felyne to hunt
         <br />
@@ -43,6 +52,7 @@
         Hunters: <span id="hunters">0</span>
         <br />
         Training Cost: <span id="trainingCostHunt">10</span>
+    </div>
         <script type="text/javascript" src="main.js"></script>
     </body>
 </html>
