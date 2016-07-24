@@ -12,7 +12,7 @@ function trainCat(){
     if(resources >= trainingCost & felynes > 0){ 
         gatherers = gatherers + 1; 
         resources = resources - trainingCost;
-        felynes = felynes - 1;
+        felynes = felynes - 1; //removes from spare pool
         document.getElementById('gatherers').innerHTML = gatherers;  
         document.getElementById('resources').innerHTML = resources;  
     };
