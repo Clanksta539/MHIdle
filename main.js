@@ -1,11 +1,11 @@
 var resources = 0;
-var felynes = 1;
+var felynes = 1; //these cats do what you tell them.
 function gatherClick(number){
 	resources = resources + number;
     document.getElementById("resources").innerHTML = resources;
 };
 
-var gatherers = 0;
+var gatherers = 0; //these are automatic cats.
 
 function trainCat(){
     var trainingCost = Math.floor(10 * Math.pow(1.1,gatherers));     
